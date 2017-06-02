@@ -8,11 +8,11 @@ class MyBot < Ebooks::Bot
   def configure
     # Consumer details come from registering an app at https://dev.twitter.com/
     # Once you have consumer details, use "ebooks auth" for new access tokens
-    self.consumer_key = '' # Your app consumer key
-    self.consumer_secret = '' # Your app consumer secret
+    self.consumer_key = 'iYPm55tuauXluAyTPg3qSmdAz' # Your app consumer key
+    self.consumer_secret = 'apb4RZI8EQBMhHA5SfkWGQwSfiSp4w4onz3lKTqXStMIDdcNhV' # Your app consumer secret
 
     # Users to block instead of interacting with
-    self.blacklist = ['tnietzschequote']
+    self.blacklist = ['ieatpets']
 
     # Range in seconds to randomize delay when bot.delay is called
     self.delay_range = 1..6
@@ -22,7 +22,7 @@ class MyBot < Ebooks::Bot
     scheduler.every '24h' do
       # Tweet something every 24 hours
       # See https://github.com/jmettraux/rufus-scheduler
-      # tweet("hi")
+      tweet("hi")
       # pictweet("hi", "cuteselfie.jpg")
     end
   end
@@ -34,12 +34,12 @@ class MyBot < Ebooks::Bot
 
   def on_follow(user)
     # Follow a user back
-    # follow(user.screen_name)
+    follow(user.screen_name)
   end
 
   def on_mention(tweet)
     # Reply to a mention
-    # reply(tweet, "oh hullo")
+    reply(tweet, "oh hullo")
   end
 
   def on_timeline(tweet)
@@ -59,7 +59,7 @@ class MyBot < Ebooks::Bot
 end
 
 # Make a MyBot and attach it to an account
-MyBot.new("{{BOT_NAME}}") do |bot|
-  bot.access_token = "" # Token connecting the app to this account
-  bot.access_token_secret = "" # Secret connecting the app to this account
+MyBot.new("jezza-repo") do |bot|
+  bot.access_token = "869984499991531520-X2aVuld5BSDf2bjSuLgahR4F1DeeBa2" # Token connecting the app to this account
+  bot.access_token_secret = "rnC0oDeUAhJyWVYuvONUuNBl8VyYXkNEh5pj6rlsNpjEm" # Secret connecting the app to this account
 end
